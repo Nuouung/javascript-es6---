@@ -34,3 +34,30 @@ class Animal3 {
     }
     ccc() { console.log('ccc'); }
 }
+
+
+// ex
+function A() {}
+
+const testObject = new A();
+
+const testObject2 = {
+    name: '홍길동',
+    age: 20
+}
+
+console.log(testObject.constructor); // function A() {}
+console.log(A.prototype.__proto__); // Object
+
+// testObject 객체가 A로 생성된 것인지 판별 <-- instanceof
+// 사용법: [객체명] instanceof [생성자 함수명] <-- 이항연산자
+
+console.log(testObject instanceof A); // true
+console.log(testObject2 instanceof A); // false
+console.log(testObject2 instanceof Object); // true
+console.log(testObject instanceof Object); // true
+
+// instanceof 연산자는 특정 객체가 그 객체와 연결된 프로토타입 체인에 연결되어 있는지 체크하는 방법 중 하나.
+// 유사한 메소드 <- isPrototypeOf()
+
+console.log(A.prototype.isPrototypeOf(testObject)); // true
